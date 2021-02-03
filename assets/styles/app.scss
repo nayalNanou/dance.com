@@ -4,6 +4,8 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/bootstrap";
+@import "./carousel.scss";
+@import "./home.scss";
 
 $fontsize: 1em;
 
