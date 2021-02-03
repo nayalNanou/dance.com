@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="mt-3 selected-dance d-flex mx-auto justify-content-between">
+        <div class="dance-image-and-name">
+            <img class="show-dance-image" src="{{ dance.image }}" alt="{{ dance.name }}" />
+
+            <h1 class="show-dance-name d-flex justify-content-center align-items-center">{{ dance.name }}</h1>
+        </div>
+
+        <p class="show-dance-description d-flex justify-content-center align-items-center">{{ dance.description }}</p>
+    </div>
+
+    <div id="list-dance-teacher" class="my-carousel list-dance-teacher">
+        <img src="{{ asset('build/images/ballerina-1.png') }}" class="left-arrow-carousel" id="left-arrow-home-carousel" />
+        <div class="slide-carousel">
+            {% if imagesCarousel is defined %}
+                {% for name,image in imagesCarousel %}
+                    <img src="{{ image }}" alt="{{ name }}" />
+                {% endfor %}
+            {% endif %}
+        </div>
+        <img src="{{ asset('build/images/ballerina-2.png') }}" class="right-arrow-carousel" id="right-arrow-home-carousel" />
+    </div>
+
+    <div class="list-dance-course">
+        <h1>List dance course</h1>
+    </div>
+{% endblock %}

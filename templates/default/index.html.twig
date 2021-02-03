@@ -1,7 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{ include('component/_home_main_carousel.html.twig') }}
+
     <h1 class="dance-com">Dance.com</h1>
 
-    {{ include('component/_home_main_carousel.html.twig') }}
+    <div class="list-dance">
+        {% if imagesCarousel is defined %}
+            {% for name,image in imagesCarousel %}
+                <div class="dance-type">
+                    <img class="dance-image" src="{{ image }}" />
+                    <span class="dance-name">{{ name }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

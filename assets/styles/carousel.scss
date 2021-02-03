@@ -74,6 +74,22 @@ $heightCarousel: 600px;
                    HOME MAIN CAROUSEL
 *********************************************************/
 
+@keyframes bckgTransparentColorAnim {
+    0% {
+        background: rgba(255, 255, 255, 0.2);
+    } 25% {
+        background: rgba(255, 255, 255, 0.2);
+    } 30% {
+        background: rgba(255, 255, 255, 1);
+    } 75% {
+        background: rgba(255, 255, 255, 0.2);
+    } 80% {
+        background: rgba(255, 255, 255, 1);
+    } 100% {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
 div[id="home-main-carousel"] {
     margin: auto;
     height: 85vh;
@@ -84,10 +100,12 @@ div[id="home-main-carousel"] {
         height: 120px;
         transition: all ease-in-out 300ms;
         cursor: pointer;
-        box-shadow: 0px 0px 6px black;
         background: rgba(255, 255, 255, 0.3);
         border-radius: 40px;
-        border: 2px solid black;
+
+        animation-name: bckgTransparentColorAnim;
+        animation-duration: 10000ms;
+        animation-iteration-count: infinite;
 
         &:hover {
             box-shadow: 0px 0px 10px black;
@@ -119,7 +137,7 @@ div[id="home-main-carousel"] {
     justify-content: flex-end;
 
     div[id="label-sport-carousel"] {
-        height: 100px;
+        height: 130px;
         width: 80%;
         background: #FBFBFB;
 
@@ -135,7 +153,7 @@ div[id="home-main-carousel"] {
             height: 100%;
             justify-content: center;
             align-items: center;
-            font-size: 1.6em;
+            font-size: 1.7em;
             padding-bottom: 16px;
         }
     }
@@ -204,7 +222,7 @@ div[id="home-main-carousel"] {
 @media all and (min-width: 1200px) {
     .bloc-label-sport {
         div[id="label-sport-carousel"] {
-            width: 80%;
+            width: 90%;
 
             .up-arrow-label-sport {
                 left: 60%;

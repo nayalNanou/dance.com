@@ -1,4 +1,12 @@
 
-Lien vidéo - Utilisation de l'application :
+composer install
 
-https://www.loom.com/share/1bd413c169ce4f61b72830a6caebb1e7
+yarn install
+
+php bin/console make:migration
+
+php bin/console doctrine:migrations:migrate
+
+php bin/console doctrine:fixtures:load
+
+symfony server:start
