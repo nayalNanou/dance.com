@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="mt-3 selected-dance d-flex mx-auto justify-content-between">
+    <div class="selected-dance d-flex mx-auto justify-content-between">
         <div class="dance-image-and-name">
             <img class="show-dance-image" src="{{ dance.image }}" alt="{{ dance.name }}" />
 
@@ -11,12 +11,17 @@
         <p class="show-dance-description d-flex justify-content-center align-items-center">{{ dance.description }}</p>
     </div>
 
-    <div id="list-dance-teacher" class="my-carousel list-dance-teacher">
+    <h2 class="header-teachers">Our {{ dance.name|capitalize }} Teachers</h2>
+
+    <div id="list-dance-teacher" class="my-carousel list-dance-teacher nbImg:4">
         <img src="{{ asset('build/images/ballerina-1.png') }}" class="left-arrow-carousel" id="left-arrow-home-carousel" />
         <div class="slide-carousel">
-            {% if imagesCarousel is defined %}
-                {% for name,image in imagesCarousel %}
-                    <img src="{{ image }}" alt="{{ name }}" />
+            {% if teachers is defined %}
+                {% for teacher in teachers %}
+                    <div class="dance-teacher">
+                        <span class="dance-teacher-name d-flex justify-content-center align-items-center">{{ teacher.name|capitalize }} {{ teacher.lastname|upper }}</span>
+                        <img class="dance-teacher-image" src="{{ teacher.image }}" alt="{{ teacher.name }}" />
+                    </div>
                 {% endfor %}
             {% endif %}
         </div>

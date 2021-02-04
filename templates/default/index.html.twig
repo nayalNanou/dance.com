@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
     <nav class="nav-menu">
         <div class="menu-languette">
             {% if app.user %}
@@ -12,14 +20,13 @@
         </div>
 
         <ul>
-            <li><a href="">S'inscrire</a></li>
-            <li>
-                {% if app.user %}
-                    <a href="{{ path("app_logout") }}">Se déconnecter</a>
-                {% else %}
-                    <a href="{{ path("app_login") }}">Se connecter</a>
-                {% endif %}
-            </li>
+            <li><a href="{{ path("app_register") }}">S'inscrire</a></li>
+            {% if app.user %}
+                <li><a href="{{ path("user_profile") }}">Mon compte</a></li>
+                <li><a href="{{ path("app_logout") }}">Se déconnecter</a></li>
+            {% else %}
+                <li><a href="{{ path("app_login") }}">Se connecter</a></li>
+            {% endif %}
         </ul>
     </nav>
 

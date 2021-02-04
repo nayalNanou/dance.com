@@ -3,6 +3,7 @@
     background: black;
     width: 90%;
     height: 400px;
+    box-shadow: 0px 0px 6px black;
 
     .dance-image-and-name {
         width: 30%;
@@ -49,8 +50,58 @@
     }
 }
 
+@keyframes bckgColorAnim {
+    0% {
+        background: black;
+        padding-right: 60%;
+    } 20% {
+        background: orange;
+        padding-right: 50%;
+    } 40% {
+        background: gold;
+        padding-right: 40%;
+    } 60% {
+        background: lime;
+        padding-right: 30%;
+    } 80% {
+        background: cyan;
+        padding-right: 20%;
+    } 100% {
+        background: black;
+        padding-right: 60%;
+    }
+}
+
+.header-teachers {
+    text-align: right;
+    color: white;
+    margin: 0px;
+    font-weight: bold;
+    padding: 20px;
+
+    animation-name: bckgColorAnim;
+    animation-duration: 30000ms;
+    animation-iteration-count: infinite;
+}
+
+
 .list-dance-teacher {
     height: 400px;
-    margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.dance-teacher {
+    .dance-teacher-image {
+        display: block;
+        height: 80%;
+        width: 100%;
+    }
+
+    .dance-teacher-name {
+        height: 20%;
+        background: black;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
 }

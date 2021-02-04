@@ -1,7 +1,24 @@
 
+
 /*********************************************************
                  GLOBAL CAROUSEL STYLE
 *********************************************************/
+
+@keyframes bckgTransparentColorAnim {
+    0% {
+        background: rgba(255, 255, 255, 0.2);
+    } 25% {
+        background: rgba(255, 255, 255, 0.2);
+    } 30% {
+        background: rgba(255, 255, 255, 1);
+    } 75% {
+        background: rgba(255, 255, 255, 0.2);
+    } 80% {
+        background: rgba(255, 255, 255, 1);
+    } 100% {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
 
 $heightCarousel: 600px;
 
@@ -28,16 +45,37 @@ $heightCarousel: 600px;
     z-index: 10;
     position: absolute;
     top: 44%;
-    width: 100px;
+    width: 90px;
     height: 100px;
+    transition: all ease-in-out 300ms;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+
+    animation-name: bckgTransparentColorAnim;
+    animation-duration: 10000ms;
+    animation-iteration-count: infinite;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.6);
+    }
 }
 
 .left-arrow-carousel {
-    left: 0px;
+    left: 20px;
+
+    &:hover {
+        transform: scale(1.2);
+    }
 }
 
 .right-arrow-carousel {
-    right: 0px;
+    right: 20px;
+    transform: rotateY(180deg);
+
+    &:hover {
+        transform: scale(1.2) rotateY(180deg);
+    }
 }
 
 @keyframes messageCarouselAnim {
@@ -73,22 +111,6 @@ $heightCarousel: 600px;
 /*********************************************************
                    HOME MAIN CAROUSEL
 *********************************************************/
-
-@keyframes bckgTransparentColorAnim {
-    0% {
-        background: rgba(255, 255, 255, 0.2);
-    } 25% {
-        background: rgba(255, 255, 255, 0.2);
-    } 30% {
-        background: rgba(255, 255, 255, 1);
-    } 75% {
-        background: rgba(255, 255, 255, 0.2);
-    } 80% {
-        background: rgba(255, 255, 255, 1);
-    } 100% {
-        background: rgba(255, 255, 255, 0.2);
-    }
-}
 
 div[id="home-main-carousel"] {
     margin: auto;

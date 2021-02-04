@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Entity\Dance;
+use App\Entity\User;
 
 /**
  * @Route("/dance", name="dance_")
@@ -20,8 +21,23 @@ class DanceController extends AbstractController
      */
     public function show(Dance $dance) : Response
     {
+        $teachers = [];
+
+        $users = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findAll();
+
+        foreach ($users as $user) {
+            $type_user = $user->getTypeuser()->getTypeuser();
+
+            if (preg_match('#' . $dance->getName() . '#', $type_user)) { 
+                $teachers[$user->getName()] = $user;
+            }
+        }
+
         return $this->render('dance/show.html.twig', [
             'dance' => $dance,
+            'teachers' => $teachers,
         ]);
     }
 }
