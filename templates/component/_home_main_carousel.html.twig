@@ -16,7 +16,7 @@
             {% if dances is defined %}
                 {% for dance in dances %}
                     <div>
-                        <p class="universe-sport-name"><a href="{{ path("dance_show", {slug: dance.slug}) }}">{{ dance.name|capitalize }}</a></p>
+                        <p class="universe-sport-name"><a href="{{ path("aboutdance_show", {slug: dance.slug}) }}">{{ dance.name|capitalize }}</a></p>
                     </div>
                 {% endfor %}
             {% endif %}

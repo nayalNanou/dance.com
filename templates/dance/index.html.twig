@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dance index{% endblock %}
+
+{% block body %}
+    <h1 class="font-weight-bold mt-4">Dance CRUD</h1>
+
+    <p class="crud-create-dance"><a href="{{ path('dance_new') }}">Create new dance</a></p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dance in dances %}
+            <tr>
+                <td class="h5">{{ dance.id }}</td>
+                <td class="h3">{{ dance.name }}</td>
+                <td><img class="crud-dance-image" src="{{ dance.image }}" alt="{{ dance.name }}" /></td>
+                <td>{{ dance.description }}</td>
+                <td>{{ dance.slug }}</td>
+                <td>
+                    <a class="crud-show-dance" href="{{ path('dance_show', {'id': dance.id}) }}">show</a>
+                    <a class="crud-edit-dance" href="{{ path('dance_edit', {'id': dance.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -38,7 +38,7 @@
         {% if dances is defined %}
             {% for dance in dances %}
                 <div class="dance-type">
-                    <a href="{{ path("dance_show", {slug: dance.slug}) }}" >
+                    <a href="{{ path("aboutdance_show", {slug: dance.slug}) }}" >
                         <img class="dance-image" src="{{ dance.image }}" />
                         <span class="dance-name">{{ dance.name }}</span>
                     </a>

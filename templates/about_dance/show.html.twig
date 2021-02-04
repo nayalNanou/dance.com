@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="selected-dance d-flex mx-auto justify-content-between">
+        <div class="dance-image-and-name">
+            <img class="show-dance-image" src="{{ dance.image }}" alt="{{ dance.name }}" />
+
+            <h1 class="show-dance-name d-flex justify-content-center align-items-center">{{ dance.name }}</h1>
+        </div>
+
+        <p class="show-dance-description d-flex justify-content-center align-items-center">{{ dance.description }}</p>
+    </div>
+
+    <h2 class="header-teachers">Our {{ dance.name|capitalize }} Teachers</h2>
+
+    <div id="list-dance-teacher" class="my-carousel list-dance-teacher nbImg:4">
+        <img src="{{ asset('build/images/ballerina-1.png') }}" class="left-arrow-carousel" id="left-arrow-home-carousel" />
+        <div class="slide-carousel">
+            {% if teachers is defined %}
+                {% for teacher in teachers %}
+                    <div class="dance-teacher">
+                        <a href="{{ path("user_show", {id: teacher.id}) }}">
+                            <span class="dance-teacher-name d-flex justify-content-center align-items-center">{{ teacher.name|capitalize }} {{ teacher.lastname|upper }}</span>
+                            <img class="dance-teacher-image" src="{{ teacher.image }}" alt="{{ teacher.name }}" />
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <img src="{{ asset('build/images/ballerina-2.png') }}" class="right-arrow-carousel" id="right-arrow-home-carousel" />
+    </div>
+
+    <div class="list-dance-course">
+        <h1>Dance courses</h1>
+    </div>
+{% endblock %}

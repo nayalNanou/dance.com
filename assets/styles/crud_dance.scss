@@ -1,0 +1,54 @@
+
+.crud-dance-image {
+    width: 300px;
+    height: 280px;
+    box-shadow: 0px 0px 6px silver;
+}
+
+.crud-create-dance {
+    margin: 20px 40px;
+    width: max-content;
+
+    a {
+        display: block;
+        color: white;
+        background: teal;
+        font-size: 1.8em;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 6px silver;
+        transition: all ease-in-out 300ms;
+        text-decoration: none;
+        padding: 10px 30px;
+
+        &:hover {
+            transform: scale(1.08);
+        }
+    }
+}
+
+.crud-show-dance, .crud-edit-dance {
+    color: white;
+    display: block;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin: 6px;
+    transition: all ease-in-out 300ms;
+
+    &:hover {
+        transform: scale(1.08);
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.crud-show-dance {
+    background: red;
+}
+
+.crud-edit-dance {
+    background: orange;
+}
