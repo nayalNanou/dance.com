@@ -1,0 +1,21 @@
+<nav class="nav-menu">
+    <div class="menu-languette">
+        {% if app.user %}
+            <span class="text-menu">{{ app.user.email }}</span>
+        {% else %}
+            <span class="text-menu">Dance.com</span>
+        {% endif %}
+        <span class="menu-label">Menu</span>
+    </div>
+
+    <ul>
+        <li><a href="{{ path("app_register") }}">S'inscrire</a></li>
+        {% if app.user %}
+            <li><a href="{{ path("user_profile") }}">Mon compte</a></li>
+            <li><a href="{{ path("app_logout") }}">Se déconnecter</a></li>
+        {% else %}
+            <li><a href="{{ path("app_login") }}">Se connecter</a></li>
+        {% endif %}
+        <li><a href="{{ path("app_index") }}">Home</a></li>
+    </ul>
+</nav>

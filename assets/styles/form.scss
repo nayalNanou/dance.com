@@ -68,6 +68,41 @@ form[name="registration_form"] {
     }
 }
 
+form[name="dance"] {
+    padding-top: 20px;
+
+    div[id="dance"] {
+        div {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            margin-top: 10px;
+
+            label {
+                text-align: right;
+                padding-right: 10px;
+                align-self: center;
+            }
+
+            input[type='text'], textarea {
+                border-radius: 4px;
+                padding: 4px 10px;
+                font-size: 1.4em;
+                border: 1px solid black;
+                align-self: center;
+            }
+        }
+    }
+
+    button {
+        background: gold;
+        color: black;
+        padding: 10px 30px;
+        font-size: 1.4em;
+        margin: auto;
+        display: block;
+    }
+}
+
 @media all and (max-width: 1000px) {
     form[name="registration_form"] {
         display: grid;
