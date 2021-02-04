@@ -34,10 +34,12 @@ if (homeMainCarousel && labelSportCarousel) {
 
 let alertSuccess = document.querySelector('.alert-success');
 
-setTimeout(function() {
-    alertSuccess.style.opacity = '0';
-}, 6000);
+if (alertSuccess) {
+    setTimeout(function() {
+        alertSuccess.style.opacity = '0';
+    }, 6000);
 
-setTimeout(function() {
-    alertSuccess.style.display = 'none';
-}, 7000);
+    setTimeout(function() {
+        alertSuccess.style.display = 'none';
+    }, 7000);
+}

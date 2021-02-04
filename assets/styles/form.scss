@@ -17,5 +17,60 @@ form {
         color: white;
         margin-top: 10px;
         margin: auto;
+        font-size: 1.6em;
+        padding: 10px 30px;
+    }
+}
+
+.form-control {
+    font-size: 1.7em;
+}
+
+.register {
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+form[name="registration_form"] {
+    width: 80%;
+
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    div {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin: 4px;
+
+        input[type="checkbox"] {
+            width: 30px;
+            height: 30px;
+        }
+
+        input, select {
+            font-size: 1.4em;
+            border-radius: 4px;
+            border: 2px solid #DFDFFF;
+            width: 80%;
+        }
+
+        select {
+            height: 40px;
+            background: white;
+        }
+
+        label {
+            text-align: right;
+            margin-right: 20px;
+            align-self: center;        
+        }
+    }
+}
+
+@media all and (max-width: 1000px) {
+    form[name="registration_form"] {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }
