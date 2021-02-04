@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Dance;
+use App\Service\Slugify;
 
 class DanceFixtures extends Fixture
 {
@@ -39,12 +40,21 @@ class DanceFixtures extends Fixture
         ],
     ];
 
+    private $slugify;
+
+    public function __construct(Slugify $slugify)
+    {
+        $this->slugify = $slugify;
+    }
+
     public function load(ObjectManager $manager)
     {
         foreach (self::DANCE as $name => $data) {
             $dance = new Dance();
 
             $dance->setName($name);
+            $slug = $this->slugify->generate($dance->getName());
+            $dance->setSlug($slug);
             $dance->setImage($data['image']);
             $dance->setDescription($data['description']);
 

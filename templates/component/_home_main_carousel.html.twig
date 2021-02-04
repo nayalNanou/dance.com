@@ -1,9 +1,9 @@
 <div id="home-main-carousel" class="my-carousel special-carousel">
     <img src="{{ asset('build/images/ballerina-1.png') }}" class="left-arrow-carousel" id="left-arrow-home-carousel" />
     <div class="slide-carousel">
-        {% if imagesCarousel is defined %}
-            {% for name,image in imagesCarousel %}
-                <img src="{{ image }}" alt="{{ name }}" />
+        {% if dances is defined %}
+            {% for dance in dances %}
+                <img src="{{ dance.image }}" alt="{{ dance.name }}" />
             {% endfor %}
         {% endif %}
     </div>
@@ -13,10 +13,10 @@
 <div class="bloc-label-sport">
     <div id="label-sport-carousel" class="my-carousel special-carousel nbimg:2 nbimg:sm3 nbimg:md3 nbimg:lg4 shift:-1 shift:sm:-1 shift:lg:-1">
         <div class="slide-carousel">
-            {% if imagesCarousel is defined %}
-                {% for name,image in imagesCarousel %}
+            {% if dances is defined %}
+                {% for dance in dances %}
                     <div>
-                        <p class="universe-sport-name">{{ name|capitalize }}</p>
+                        <p class="universe-sport-name"><a href="{{ path("dance_show", {slug: dance.slug}) }}">{{ dance.name|capitalize }}</a></p>
                     </div>
                 {% endfor %}
             {% endif %}

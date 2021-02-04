@@ -14,17 +14,12 @@ class DefaultController extends AbstractController
      */
     public function index(): Response
     {
-        $imagesCarousel = [];
         $dances = $this->getDoctrine()
             ->getRepository(Dance::class)
             ->findAll();
 
-        foreach ($dances as $dance) {
-            $imagesCarousel[$dance->getName()] = $dance->getImage();
-        }
-
         return $this->render('default/index.html.twig', [
-            'imagesCarousel' => $imagesCarousel,
+            'dances' => $dances,
         ]);
     }
 }

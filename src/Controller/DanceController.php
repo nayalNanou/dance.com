@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Entity\Dance;
 
 /**
@@ -13,14 +14,12 @@ use App\Entity\Dance;
 class DanceController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="show")
+     * @Route("/{slug}", name="show")
+     * @ParamConverter("dance", class="App\Entity\Dance", options={"mapping": {"slug": "slug"}})
+     * @return Response
      */
-    public function show($id) : Response
+    public function show(Dance $dance) : Response
     {
-        $dance = $this->getDoctrine()
-            ->getRepository(Dance::class)
-            ->findOneBy(['id' => $id]);
-
         return $this->render('dance/show.html.twig', [
             'dance' => $dance,
         ]);

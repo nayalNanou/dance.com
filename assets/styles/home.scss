@@ -45,22 +45,104 @@
     box-shadow: 4px 4px 8px black;
     width: 40%;
     height: 600px;
+    transition: all ease-in-out 300ms;
 
-    .dance-image {
-        display: block;
-        width: 100%;
-        height: 80%;
+    a {
+        text-decoration: none;
+
+        .dance-image {
+            display: block;
+            width: 100%;
+            height: 80%;
+        }
+
+        .dance-name {
+            display: block;
+            font-size: 2em;
+            text-align: center;
+            height: 20%;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
     }
 
-    .dance-name {
-        display: block;
+    &:hover {
+        transform: scale(1.12);
+    }
+}
+
+.nav-menu {
+    position: fixed;
+    left: -28%;
+    top: 0px;
+    width: 28%;
+    min-width: 300px;
+    background: black;
+    color: white;
+    z-index: 1000;
+    padding-bottom: 20px;
+    border-radius: 0px 0px 10px 0px;
+    box-shadow: 4px 4px 10px black;
+    transition: all ease-in-out 300ms;
+
+    .menu-languette {
         font-size: 2em;
-        text-align: center;
-        height: 20%;
+        width: 128%;
         background: black;
-        color: white;
+        padding: 10px 20px;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        box-shadow: 4px 4px 10px black;
+
+        .text-menu {
+            display: block;
+            text-align: center;
+            width: 76%;
+        }
+
+        .menu-label {
+            text-align: right;
+            display: block;
+            width: 24%;
+            font-weight: bold;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 20px;
+
+        li {
+            background: white;
+            text-align: center;
+            width: 70%;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: all ease-in-out 300ms;
+
+            a {
+                color: black;
+                display: block;
+                height: 100%;
+                padding: 10px 0px;
+                text-decoration: none;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &:hover {
+        left: 0%;
     }
 }

@@ -1,16 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <nav class="nav-menu">
+        <div class="menu-languette">
+            {% if app.user %}
+                <span class="text-menu">{{ app.user.email }}</span>
+            {% else %}
+                <span class="text-menu">Dance.com</span>
+            {% endif %}
+            <span class="menu-label">Menu</span>
+        </div>
+
+        <ul>
+            <li><a href="">S'inscrire</a></li>
+            <li>
+                {% if app.user %}
+                    <a href="{{ path("app_logout") }}">Se déconnecter</a>
+                {% else %}
+                    <a href="{{ path("app_login") }}">Se connecter</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+
     {{ include('component/_home_main_carousel.html.twig') }}
 
     <h1 class="dance-com">Dance.com</h1>
 
     <div class="list-dance">
-        {% if imagesCarousel is defined %}
-            {% for name,image in imagesCarousel %}
+        {% if dances is defined %}
+            {% for dance in dances %}
                 <div class="dance-type">
-                    <img class="dance-image" src="{{ image }}" />
-                    <span class="dance-name">{{ name }}</span>
+                    <a href="{{ path("dance_show", {slug: dance.slug}) }}" >
+                        <img class="dance-image" src="{{ dance.image }}" />
+                        <span class="dance-name">{{ dance.name }}</span>
+                    </a>
                 </div>
             {% endfor %}
         {% endif %}
