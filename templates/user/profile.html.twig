@@ -1,7 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if app.user %}
+    {% if user is defined %}
+        <div class="mt-4 d-flex justify-content-around align-items-center">
+            <img class="user-image" src="{{ user.image }}" />
+
+            <div class="user-information">
+                <h1 class="bg-light">{{ user.name|capitalize }} {{ user.lastname|upper }} </h1>
+
+                <table>
+                    <tr>
+                        <td class="text-right bg-light">Name</td>
+                        <td class="bg-light"><strong>{{ user.name|capitalize }}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-right bg-light">Last name</td>
+                        <td class="bg-light"><strong>{{ user.lastname|upper }}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-right bg-light">Email</td>
+                        <td class="bg-light"><strong>{{ user.email }}</strong></td>
+                    </tr>
+
+                    {% if is_granted('ROLE_TEACHER') %}
+                        <tr>
+                            <td colspan="2" class="text-center text-light bg-dark"><strong>{{ user.typeuser.typeuser|capitalize }}</strong></td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    {% elseif app.user %}
         <div class="mt-4 d-flex justify-content-around align-items-center">
             <img class="user-image" src="{{ app.user.image }}" />
 

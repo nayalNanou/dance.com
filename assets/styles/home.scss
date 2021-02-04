@@ -1,4 +1,13 @@
 
+.alert-success {
+    position: absolute;
+    z-index: 100000;
+    right: 30%;
+    padding: 10px 60px;
+    font-size: 2em;
+    transition: all linear 1000ms;
+}
+
 @keyframes bckgColorAnim {
     0% {
         background: black;

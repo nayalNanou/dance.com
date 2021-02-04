@@ -20,4 +20,18 @@ class UserController extends AbstractController
     {
         return $this->render('user/profile.html.twig');
     }
+
+    /**
+     * @Route("/{id}", name="show")
+     */
+    public function showUser($id)
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['id' => $id]);
+
+        return $this->render('user/profile.html.twig', [
+            'user' => $user,
+        ]);
+    }
 }

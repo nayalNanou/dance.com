@@ -19,8 +19,10 @@
             {% if teachers is defined %}
                 {% for teacher in teachers %}
                     <div class="dance-teacher">
-                        <span class="dance-teacher-name d-flex justify-content-center align-items-center">{{ teacher.name|capitalize }} {{ teacher.lastname|upper }}</span>
-                        <img class="dance-teacher-image" src="{{ teacher.image }}" alt="{{ teacher.name }}" />
+                        <a href="{{ path("user_show", {id: teacher.id}) }}">
+                            <span class="dance-teacher-name d-flex justify-content-center align-items-center">{{ teacher.name|capitalize }} {{ teacher.lastname|upper }}</span>
+                            <img class="dance-teacher-image" src="{{ teacher.image }}" alt="{{ teacher.name }}" />
+                        </a>
                     </div>
                 {% endfor %}
             {% endif %}
@@ -29,6 +31,6 @@
     </div>
 
     <div class="list-dance-course">
-        <h1>List dance course</h1>
+        <h1>Dance courses</h1>
     </div>
 {% endblock %}
